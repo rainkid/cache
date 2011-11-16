@@ -1,1 +1,11 @@
 this is a php cache.
+example:
+static public function getCacheHandle() {
+  	static $cache = null;
+		if ($cache === null) {
+			$cacheInfo = $cacheConfig['servers']['phpwind'];
+			Wind::import('LIBRARY:cache.CacheFactory');
+			$cache = CacheFactory::getCache($cacheInfo);
+		}
+		return $cache;
+	}
